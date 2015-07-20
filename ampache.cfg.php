@@ -17,7 +17,7 @@ config_version = 29
 ; If not set, retrieved automatically from client request.
 ; This setting is required for WebSocket server
 ; DEFAULT: ""
-http_host = "localhost"
+http_host = ""
 
 ; The public path to your ampache install
 ; Do not put a trailing / on this path
