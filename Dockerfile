@@ -5,7 +5,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && apt-get install -y -q apache2-mpm-prefork mysql-server php5 php5-gd php5-mysql php5-curl\
+RUN apt-get update && apt-get install -y -q apache2 mysql-server php5 php5-mysql php5-curl mysql-client\
                     && cd /var/www   \
                     && wget https://github.com/ampache/ampache/archive/3.8.0.tar.gz \
                     && tar -xzvf 3.8.0.tar.gz \
@@ -60,7 +60,7 @@ RUN chmod +x /sbin/after_install
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally
 COPY apache2.conf /etc/apache2/apache2.conf
-COPY ampache.cfg.php /var/www/ampache/config/ampache.cfg.php
+
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
 EXPOSE 80
