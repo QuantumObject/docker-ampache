@@ -6,14 +6,10 @@ set -e
 
  mysqladmin -u root password mysqlpsswd
  mysqladmin -u root -pmysqlpsswd reload
- mysqladmin -u root -pmysqlpsswd create  ampache
-
-echo "GRANT ALL ON ampache.* TO ampacheuser@localhost IDENTIFIED BY 'ampachedbpasswd'; flush privileges; " | mysql -u root -pmysqlpsswd
-# mysql -u ampacheuser -pampachedbpasswd ampache < /var/www/ampache/sql/ampache.sql
-
 
  #apache2 conf
  a2enmod rewrite
+ chmod 777 /var/www/ampache/config -R
  chown -R www-data:www-data /var/www/ampache
  sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/ampache/' /etc/apache2/sites-enabled/000*.conf
  sed -i 's/upload_max_filesize = 2M /upload_max_filesize = 200M/' /etc/php5/apache2/php.ini
