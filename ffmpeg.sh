@@ -11,9 +11,10 @@ apt-get update && apt-get install -y -q build-essential \
                               libxfixes-dev \
                               zlib1g-dev \
                               pkg-config \
-                              netcat 
+                              netcat \
+                              libmp3lame0
                               
-FFMPEG_VERSION=2.6
+FFMPEG_VERSION=2.7.2
 
  cd /usr/local/src
  if [ ! -d "/usr/local/src/ffmpeg-${FFMPEG_VERSION}" ]; then
@@ -23,7 +24,7 @@ FFMPEG_VERSION=2.6
  fi
 
  cd "ffmpeg-${FFMPEG_VERSION}"
- ./configure --enable-version3 --enable-postproc --enable-libvorbis --enable-libvpx
+ ./configure --enable-version3 --enable-postproc --enable-libmp3lame --enable-libvorbis --enable-libvpx
  make
  checkinstall --pkgname=ffmpeg --pkgversion="5:${FFMPEG_VERSION}" --backup=no --deldoc=yes --default
 
