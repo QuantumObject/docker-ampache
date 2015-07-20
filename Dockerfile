@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y -q apache2-mpm-prefork, mysql-server, p
                     && tar -xzvf current.tar.gz \
                     && rm current.tar.gz \
                     && mv ampache-* ampache \
-                    && chown -R www-data:www-data ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
@@ -61,7 +60,7 @@ RUN chmod +x /sbin/after_install
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally
 COPY apache2.conf /etc/apache2/apache2.conf
-
+COPY ampache.cfg.php /var/www/ampache/config/ampache.cfg.php
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
 EXPOSE 80
