@@ -5,7 +5,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN apt-get update && apt-get install -y -q apache2-mpm-prefork mysql-server php5 php5-gd php5-mysql \
+RUN apt-get update && apt-get install -y -q apache2-mpm-prefork mysql-server php5 php5-gd php5-mysql php5-curl\
                     && cd /var/www   \
                     && wget https://github.com/ampache/ampache/archive/3.8.0.tar.gz \
                     && tar -xzvf 3.8.0.tar.gz \
