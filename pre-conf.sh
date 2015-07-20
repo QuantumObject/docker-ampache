@@ -9,7 +9,7 @@ set -e
  mysqladmin -u root -pmysqlpsswd create  ampache
 
 echo "GRANT ALL ON ampache.* TO ampacheuser@localhost IDENTIFIED BY 'ampachedbpasswd'; flush privileges; " | mysql -u root -pmysqlpsswd
- mysql -u ampacheuser -pampachedbpasswd ampache < /var/www/ampache/sql/ampache.sql
+# mysql -u ampacheuser -pampachedbpasswd ampache < /var/www/ampache/sql/ampache.sql
 
 
  #apache2 conf
