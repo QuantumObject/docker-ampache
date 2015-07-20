@@ -13,6 +13,7 @@ echo "GRANT ALL ON ampache.* TO ampacheuser@localhost IDENTIFIED BY 'ampachedbpa
 
  #apache2 conf
  a2enmod rewrite
+ chown -R www-data:www-data /var/www/ampache
  sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/ampache/' /etc/apache2/sites-enabled/000*.conf
  
  rm -R /var/www/html/
