@@ -15,6 +15,10 @@ RUN apt-get update && apt-get install -y -q apache2 mysql-server php5 php5-mysql
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
 
+#install ffmpeg
+copy ffmpeg.sh /tmp/ffmpeg.sh
+RUN chmod +x /tmp/ffmpeg.sh \
+    && /bin/bash -c /tmp/ffmpeg.sh
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
