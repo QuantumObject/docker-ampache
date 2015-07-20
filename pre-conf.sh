@@ -16,6 +16,7 @@ echo "GRANT ALL ON ampache.* TO ampacheuser@localhost IDENTIFIED BY 'ampachedbpa
  a2enmod rewrite
  chown -R www-data:www-data /var/www/ampache
  sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/ampache/' /etc/apache2/sites-enabled/000*.conf
+ sed -i 's/upload_max_filesize = 2M /upload_max_filesize = 200M/' /etc/php5/apache2/php.ini
  
  rm -R /var/www/html/
  
