@@ -7,9 +7,9 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 #Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q apache2-mpm-prefork, mysql-server, php5, php5-gd \
                     && cd /var/www   \
-                    && wget <a href="http://www.ampache.org/downloads/current.tar.gz">http://www.ampache.org/downloads/current.tar.gz</a> \
-                    && tar -xzvf current.tar.gz \
-                    && rm current.tar.gz \
+                    && wget https://github.com/ampache/ampache/archive/3.8.0.tar.gz \
+                    && tar -xzvf 3.8.0.tar.gz \
+                    && rm 3.8.0.tar.gz \
                     && mv ampache-* ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
