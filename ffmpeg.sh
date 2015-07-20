@@ -12,7 +12,8 @@ apt-get update && apt-get install -y -q build-essential \
                               zlib1g-dev \
                               pkg-config \
                               netcat \
-                              libmp3lame0
+                              libmp3lame0 \
+                              libmp3lame-dev
                               
 FFMPEG_VERSION=2.7.2
 
