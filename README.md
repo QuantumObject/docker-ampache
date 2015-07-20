@@ -1,6 +1,5 @@
 # docker-ampache
 
-Docker container for ampache application
 Docker container for [Ampache][3]
 
 "A web based audio/video streaming application and file manager allowing you to access your music & videos from anywhere, using almost any internet enabled device."
@@ -32,7 +31,7 @@ when done please execute this command for security and remove the install script
 
 ## More Info
 
-About Ampache[ampache.org][1]
+About Ampache [ampache.org][1]
 
 To help improve this container [quantumobject/docker-ampache][5]
 
