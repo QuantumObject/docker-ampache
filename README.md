@@ -11,7 +11,7 @@ Docker container for [Ampache][3]
 To install docker in Ubuntu 14.04 use the commands:
 
     $ sudo apt-get update
-    $ sudo apt-get install docker.io
+    $ wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
@@ -28,6 +28,10 @@ where mysql user will be root and password will be mysqlpsswd
 when done please execute this command for security and remove the install script:
 
     $ docker exec -it container_id after_install
+    
+to add the media files for this container you can used the VOLUME /var/data when creating the container :
+
+    $ docker run -d -p xxxx:80 -v /src/data:/var/data quantumobject/docker-ampache
 
 ## More Info
 
