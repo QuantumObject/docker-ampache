@@ -1,5 +1,5 @@
 #name of container: docker-ampache
-#versison of container: 0.1.0
+#versison of container: 0.1.1
 FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -68,6 +68,9 @@ COPY apache2.conf /etc/apache2/apache2.conf
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
 EXPOSE 80
+
+#This is folder for data needed to create library or to keep the media files ..
+VOLUME /var/data
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
