@@ -25,7 +25,7 @@ or you can used a pre-existing mysql container.
   
 Them create and link to Ampache container
 
-    $ docker run -d -p xxxx:80 --link some-mysql:db quantumobject/docker-owncloud 
+    $ docker run -d -p xxxx:80 --link some-mysql:db quantumobject/docker-ampache 
 
 where when been ask for database need to replace localhost for db.
 
