@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
- /usr/bin/mysqld_safe &
- sleep 10s
-
- mysqladmin -u root password mysqlpsswd
- mysqladmin -u root -pmysqlpsswd reload
-
  #apache2 conf
  a2enmod rewrite
  chmod 777 /var/www/ampache/config -R
@@ -17,7 +11,7 @@ set -e
  rm -R /var/www/html/
  
  #to fix error relate to ip address of container apache2
- echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/fqdn.conf
+ echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf
  ln -s /etc/apache2/conf-available/fqdn.conf /etc/apache2/conf-enabled/fqdn.conf
 
  
@@ -25,6 +19,3 @@ set -e
  apt-get clean
  rm -rf /tmp/* /var/tmp/*
  rm -rf /var/lib/apt/lists/*
- 
-killall mysqld
-sleep 10s
