@@ -17,13 +17,19 @@ To install docker in Ubuntu 14.04 use the commands:
 
 ## Usage
 
-To run container use the command below:
+If you need a MySQL database you can link container :
 
-    $ docker run -d -p xxxx:80 quantumobject/docker-ampache
+    $ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql
+
+or you can used a pre-existing mysql container.  
+  
+Them create and link to Ampache container
+
+    $ docker run -d -p xxxx:80 --link some-mysql:db quantumobject/docker-owncloud 
+
+where when been ask for database need to replace localhost for db.
 
 Check port and point your browser to http://[ip]:xxxx/  to initially configure your Ampache.
-
-where mysql user will be root and password will be mysqlpsswd
 
 when done please execute this command for security and remove the install script:
 
@@ -31,7 +37,7 @@ when done please execute this command for security and remove the install script
     
 to add the media files for this container you can used the VOLUME /var/data when creating the container :
 
-    $ docker run -d -p xxxx:80 -v /src/data:/var/data quantumobject/docker-ampache
+    $ docker run -d -p xxxx:80 -v /src/data:/var/data --link some-mysql:db quantumobject/docker-ampache
 
 ## More Info
 
