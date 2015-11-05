@@ -45,9 +45,11 @@ About Ampache [ampache.org][1]
 
 To help improve this container [quantumobject/docker-ampache][5]
 
+For additional info about us and our projects check our site [www.quantumobject.com][6]
+
 [1]:http://ampache.org/
 [2]:https://www.docker.com
 [3]:https://github.com/ampache/ampache/releases
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-ampache
-
+[6]:http://www.quantumobject.com/
