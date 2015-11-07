@@ -8,7 +8,7 @@ Docker container for [Ampache][3]
 
   - [Docker][2]
 
-To install docker in Ubuntu 14.04 use the commands:
+To install docker in Ubuntu 15.04 use the commands:
 
     $ sudo apt-get update
     $ wget -qO- https://get.docker.com/ | sh
@@ -34,6 +34,7 @@ Check port and point your browser to http://[ip]:xxxx/  to initially configure y
 when done please execute this command for security and remove the install script:
 
     $ docker exec -it container_id after_install
+    $ export TERM=xterm       #needed to execute some command correctly (nano,top)
     
 to add the media files for this container you can used the VOLUME /var/data when creating the container :
 
