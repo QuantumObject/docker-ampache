@@ -59,7 +59,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 EXPOSE 80
 
 #This is folder for data needed to create library or to keep the media files ..
-VOLUME ["/var/www/config","/var/www/themes","/var/data"]
+VOLUME ["/var/www/ampache/config","/var/www/ampache/themes","/var/data"]
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
