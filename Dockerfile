@@ -1,5 +1,5 @@
 #name of container: docker-ampache
-#versison of container: 0.2.1
+#versison of container: 0.2.2
 FROM quantumobject/docker-baseimage:15.10
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -7,9 +7,9 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 #Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q apache2 php5 php5-gd php5-mysql php5-curl \
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/3.8.0.tar.gz \
-                    && tar -xzvf 3.8.0.tar.gz \
-                    && rm 3.8.0.tar.gz \
+                    && wget https://github.com/ampache/ampache/archive/3.8.2.tar.gz \
+                    && tar -xzvf 3.8.2.tar.gz \
+                    && rm 3.8.2.tar.gz \
                     && mv ampache-* ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y -q apache2 php5 php5-gd php5-mysql php5
 
 #install ffmpeg
 copy ffmpeg.sh /tmp/ffmpeg.sh
-RUN chmod +x /tmp/ffmpeg.sh \
+RUN chmod +x /tmp/ffmpeg.sh; sync \
     && /bin/bash -c /tmp/ffmpeg.sh
 
 ##startup scripts  
@@ -30,22 +30,20 @@ RUN chmod +x /etc/my_init.d/startup.sh
 
 ##Adding Deamons to containers
 # to add apache2 deamon to runit
-RUN mkdir /etc/service/apache2
+RUN mkdir -p /etc/service/apache2  /var/log/apache2 ; sync 
+RUN mkdir /etc/service/apache2/log
 COPY apache2.sh /etc/service/apache2/run
-RUN chmod +x /etc/service/apache2/run
+COPY apache2-log.sh /etc/service/apache2/log/run
+RUN chmod +x /etc/service/apache2/run /etc/service/apache2/log/run \
+    && cp /var/log/cron/config /var/log/apache2/ \
+    && chown -R www-data /var/log/apache2
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
 COPY pre-conf.sh /sbin/pre-conf
-RUN chmod +x /sbin/pre-conf \
+RUN chmod +x /sbin/pre-conf ; sync \
     && /bin/bash -c /sbin/pre-conf \
     && rm /sbin/pre-conf
-
-##scritp that can be running from the outside using docker-bash tool ...
-## for example to create backup for database with convitation of VOLUME   dockers-bash container_ID backup_mysql
-COPY backup.sh /sbin/backup
-RUN chmod +x /sbin/backup
-VOLUME /var/backups
 
 #script to execute after install configuration done ....
 COPY after_install.sh /sbin/after_install
