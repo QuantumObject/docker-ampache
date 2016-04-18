@@ -1,22 +1,17 @@
 #!/bin/sh
 
-apt-add-repository multiverse && apt-get update && apt-get install -y -q build-essential \
-                              git-core \
-                              checkinstall \
-                              yasm \
-                              texi2html \
-                              libvorbis-dev \
-                              libx11-dev \
-                              libvpx-dev \
-                              libxfixes-dev \
-                              zlib1g-dev \
-                              pkg-config \
-                              libx264-dev \
-                              libfaac-dev \
-                              netcat \
-                              libmp3lame-dev
+echo "deb http://archive.ubuntu.com/ubuntu `cat /etc/container_environment/DISTRIB_CODENAME` multiverse" >> /etc/apt/sources.list
+apt-get update
+apt-get install -y -q build-essential  git-core \
+                              checkinstall yasm \
+                              texi2html libvorbis-dev \
+                              libx11-dev libvpx-dev \
+                              libxfixes-dev zlib1g-dev \
+                              pkg-config libx264-dev \
+                              libfaac-dev libmp3lame-dev \
+                              netcat 
                               
-FFMPEG_VERSION=2.8.1
+FFMPEG_VERSION=3.0.1
 
  cd /usr/local/src
  if [ ! -d "/usr/local/src/ffmpeg-${FFMPEG_VERSION}" ]; then
