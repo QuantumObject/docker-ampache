@@ -34,7 +34,6 @@ Check port and point your browser to http://[ip]:xxxx/  to initially configure y
 when done please execute this command for security and remove the install script:
 
     $ docker exec -it container_id after_install
-    $ export TERM=xterm       #needed to execute some command correctly (nano,top)
     
 to add the media files for this container you can used the VOLUME /var/data when creating the container :
 
@@ -46,11 +45,11 @@ About Ampache [ampache.org][1]
 
 To help improve this container [quantumobject/docker-ampache][5]
 
-For additional info about us and our projects check our site [www.quantumobject.com][6]
+For additional info about us and our projects check our site [www.quantumobject.org][6]
 
 [1]:http://ampache.org/
 [2]:https://www.docker.com
 [3]:https://github.com/ampache/ampache/releases
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-ampache
-[6]:http://www.quantumobject.com/
+[6]:https://www.quantumobject.org/
