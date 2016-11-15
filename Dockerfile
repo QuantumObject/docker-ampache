@@ -1,5 +1,5 @@
 #name of container: docker-ampache
-#versison of container: 0.2.2
+#versison of container: 0.2.3
 FROM quantumobject/docker-baseimage:15.10
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -31,10 +31,8 @@ RUN chmod +x /etc/my_init.d/startup.sh
 ##Adding Deamons to containers
 # to add apache2 deamon to runit
 RUN mkdir -p /etc/service/apache2  /var/log/apache2 ; sync 
-RUN mkdir /etc/service/apache2/log
 COPY apache2.sh /etc/service/apache2/run
-COPY apache2-log.sh /etc/service/apache2/log/run
-RUN chmod +x /etc/service/apache2/run /etc/service/apache2/log/run \
+RUN chmod +x /etc/service/apache2/run \
     && cp /var/log/cron/config /var/log/apache2/ \
     && chown -R www-data /var/log/apache2
 
