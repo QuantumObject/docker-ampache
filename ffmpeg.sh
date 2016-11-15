@@ -8,7 +8,7 @@ apt-get install -y -q build-essential  git-core \
                               libx11-dev libvpx-dev \
                               libxfixes-dev zlib1g-dev \
                               pkg-config libx264-dev \
-                              libfaac-dev libmp3lame-dev \
+                              libfdk-aac-dev libmp3lame-dev \
                               netcat 
                               
 FFMPEG_VERSION=3.2
@@ -21,7 +21,7 @@ FFMPEG_VERSION=3.2
  fi
 
  cd "ffmpeg-${FFMPEG_VERSION}"
- ./configure --enable-version3 --enable-postproc --enable-libmp3lame --enable-libvorbis --enable-libvpx --enable-gpl --enable-libx264 --enable-nonfree --enable-libfaac
+ ./configure --enable-version3 --enable-postproc --enable-libmp3lame --enable-libvorbis --enable-libvpx --enable-gpl --enable-libx264 --enable-nonfree --enable-libfdk-aac
  make
  checkinstall --pkgname=ffmpeg --pkgversion="5:${FFMPEG_VERSION}" --backup=no --deldoc=yes --default
 
