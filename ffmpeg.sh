@@ -11,7 +11,7 @@ apt-get install -y -q build-essential  git-core \
                               libfdk-aac-dev libmp3lame-dev \
                               netcat 
                               
-FFMPEG_VERSION=3.2
+FFMPEG_VERSION=3.3
 
  cd /usr/local/src
  if [ ! -d "/usr/local/src/ffmpeg-${FFMPEG_VERSION}" ]; then
