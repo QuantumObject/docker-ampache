@@ -1,24 +1,20 @@
 #name of container: docker-ampache
-#versison of container: 0.2.3
-FROM quantumobject/docker-baseimage:15.10
+#versison of container: 0.3.1
+FROM quantumobject/docker-baseimage:16.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
-#add repository and update the container
-#Installation of nesesary package/software for this containers...
-RUN apt-get update && apt-get install -y -q apache2 php5 php5-gd php5-mysql php5-curl \
+# Update the container
+# Installation of nesesary package/software for this containers...
+RUN apt-get update && apt-get install -y -q apache2 php7.0 php7.0-gd php7.0-mysql \
+                    php7.0-curl libapache2-mod-php7.0 php7.0-mbstring ffmpeg \
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/3.8.2.tar.gz \
-                    && tar -xzvf 3.8.2.tar.gz \
-                    && rm 3.8.2.tar.gz \
+                    && wget https://github.com/ampache/ampache/archive/3.8.3.tar.gz \
+                    && tar -xzvf 3.8.3.tar.gz \
+                    && rm 3.8.3.tar.gz \
                     && mv ampache-* ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
-
-#install ffmpeg
-copy ffmpeg.sh /tmp/ffmpeg.sh
-RUN chmod +x /tmp/ffmpeg.sh; sync \
-    && /bin/bash -c /tmp/ffmpeg.sh
 
 ##startup scripts  
 #Pre-config scrip that maybe need to be run one time only when the container run the first time .. using a flag to don't 
