@@ -6,7 +6,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 # Update the container
 # Installation of nesesary package/software for this containers...
 RUN apt-get update && apt-get install -y -q apache2 php7.0 php7.0-gd php7.0-mysql \
-                    php7.0-curl libapache2-mod-php7.0 php7.0-mbstring ffmpeg \
+                    php7.0-curl libapache2-mod-php7.0 php7.0-mbstring ffmpeg git\
                     && cd /var/www   \
                     && wget https://github.com/ampache/ampache/archive/3.8.3.tar.gz \
                     && tar -xzvf 3.8.3.tar.gz \
