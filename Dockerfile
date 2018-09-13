@@ -1,17 +1,17 @@
 #name of container: docker-ampache
-#versison of container: 0.3.1
-FROM quantumobject/docker-baseimage:16.04
+#versison of container: 0.3.2
+FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Update the container
 # Installation of nesesary package/software for this containers...
-RUN apt-get update && apt-get install -y -q apache2 php7.0 php7.0-gd php7.0-mysql \
-                    php7.0-curl libapache2-mod-php7.0 php7.0-mbstring ffmpeg git\
-                    php7.0-zip php7.0-xml\
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q apache2 php php-gd php-mysql \
+                    php-curl libapache2-mod-php php-mbstring ffmpeg git\
+                    php-zip php-xml\
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/3.8.3.tar.gz \
-                    && tar -xzvf 3.8.3.tar.gz \
-                    && rm 3.8.3.tar.gz \
+                    && wget https://github.com/ampache/ampache/archive/3.8.9.tar.gz \
+                    && tar -xzvf 3.8.9.tar.gz \
+                    && rm 3.8.9.tar.gz \
                     && mv ampache-* ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
