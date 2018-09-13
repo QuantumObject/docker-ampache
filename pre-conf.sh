@@ -6,8 +6,8 @@ set -e
  chmod 777 /var/www/ampache/config -R
  chown -R www-data:www-data /var/www/ampache
  sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/ampache/' /etc/apache2/sites-enabled/000*.conf
- sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 200M/' /etc/php/7.0/apache2/php.ini 
- sed -i 's/post_max_size = 8M/post_max_size = 40M/' /etc/php/7.0/apache2/php.ini 
+ sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 200M/' /etc/php/7.2/apache2/php.ini 
+ sed -i 's/post_max_size = 8M/post_max_size = 40M/' /etc/php/7.2/apache2/php.ini 
  rm -R /var/www/html/
  
  #install ampache dependence using composer
