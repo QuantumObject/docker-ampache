@@ -39,6 +39,9 @@ to add the media files for this container you can used the VOLUME /var/data when
 
     $ docker run -d -p 80:80 -v /src/data:/var/data --link some-mysql:db quantumobject/docker-ampache
 
+After installing and configuring the web application , need to add the first local catalog to be able to used the music at folder relate to volume , in this casa the path for the local Catalog will be /var/data.
+
+
 ## More Info
 
 About Ampache [ampache.org][1]
