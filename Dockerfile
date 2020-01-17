@@ -1,5 +1,5 @@
 #name of container: docker-ampache
-#versison of container: 0.3.3
+#versison of container: 0.3.4
 FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -9,9 +9,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q apach
                     php-curl libapache2-mod-php php-mbstring ffmpeg git\
                     php-zip php-xml\
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/3.9.0.tar.gz \
-                    && tar -xzvf 3.9.0.tar.gz \
-                    && rm 3.9.0.tar.gz \
+                    && wget https://github.com/ampache/ampache/archive/4.1.0.tar.gz \
+                    && tar -xzvf 4.1.0.tar.gz \
+                    && rm 4.1.0.tar.gz \
                     && mv ampache-* ampache \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
