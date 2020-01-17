@@ -14,7 +14,7 @@ set -e
  #install composer first
  cd /var/www/ampache
  php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
- php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+ php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === 'c5b9b6d368201a9db6f74e2611495f369991b72d9c8cbd3ffbc63edff210eb73d46ffbfce88669ad33695ef77dc76976') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
  php composer-setup.php
  php -r "unlink('composer-setup.php');"
  mv composer.phar /usr/local/bin/composer
