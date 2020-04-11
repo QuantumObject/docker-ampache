@@ -27,6 +27,7 @@ set -e
   RESULT=$?
   php -r "unlink('composer-setup.php');"
   mv composer.phar /usr/local/bin/composer
+  composer remove dropbox/dropbox-sdk
   composer install
   rm composer-setup.php
  
