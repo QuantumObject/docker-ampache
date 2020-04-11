@@ -28,7 +28,7 @@ set -e
   php -r "unlink('composer-setup.php');"
   mv composer.phar /usr/local/bin/composer
   composer remove dropbox/dropbox-sdk
-  composer install
+  composer install --prefer-source --no-interaction
   #rm composer-setup.php
  
  #to fix error relate to ip address of container apache2
