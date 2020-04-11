@@ -29,7 +29,7 @@ set -e
   mv composer.phar /usr/local/bin/composer
   composer remove dropbox/dropbox-sdk
   composer install
-  rm composer-setup.php
+  #rm composer-setup.php
  
  #to fix error relate to ip address of container apache2
  echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf
