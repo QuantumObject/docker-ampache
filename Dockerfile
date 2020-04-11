@@ -7,7 +7,7 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 # Installation of nesesary package/software for this containers...
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends apache2 php php-gd php-mysql \
                     php-curl libapache2-mod-php php-mbstring ffmpeg git\
-                    php-zip php-xml\
+                    php-zip php-xml unzip \
                     && cd /var/www   \
                     && wget https://github.com/ampache/ampache/archive/4.1.1.tar.gz \
                     && tar -xzvf 4.1.1.tar.gz \
