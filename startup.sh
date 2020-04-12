@@ -24,6 +24,7 @@ if [ -f /etc/configured ]; then
 else
         #code that need to run only one time ....  
         chown www-data:www-data /var/www/ampache
+        chown www-data:www-data /var/data
         #needed for fix problem with ubuntu and cron
         update-locale 
         date > /etc/configured
