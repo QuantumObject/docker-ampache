@@ -9,7 +9,7 @@ else
         if [[ ! -f /var/www/ampache/config/ampache.cfg.php ]]; then
           mv /var/temp/ampache.cfg.php.dist /var/www/ampache/config/ampache.cfg.php.dist
         fi
-        chmod 777 /var/www/ampache/config -R
+        chmod 770 /var/www/ampache/config -R
         chown -R www-data:www-data /var/www/ampache
     
        
