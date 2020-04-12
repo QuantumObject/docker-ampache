@@ -9,7 +9,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-
                     php-curl libapache2-mod-php php-mbstring ffmpeg git\
                     php-zip php-xml unzip php-json php-common \
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/ampache-4.1.1_all.zip \
+                    && wget https://github.com/ampache/ampache/releases/download/4.1.1/ampache-4.1.1_all.zip \
                     && unzip ampache-4.1.1_all.zip -d ampache \
                     && rm ampache-4.1.1_all.zip \ 
                     && apt-get clean \
