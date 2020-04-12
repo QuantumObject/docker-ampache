@@ -13,7 +13,7 @@ set -e
 cd /var/www/ampache
 cp ./rest/.htaccess.dist ./rest/.htaccess
 cp ./play/.htaccess.dist ./play/.htaccess
-cp ./channel/.htaccess.dist ./channel/.htaccesss
+cp ./channel/.htaccess.dist ./channel/.htaccess
 chown -R www-data:www-data /var/www/ampache
  
  #to fix error relate to ip address of container apache2
