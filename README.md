@@ -19,7 +19,7 @@ To install docker in Ubuntu 18.04 use the commands:
 
 If you need a MySQL database you can link container :
 
-    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql
+    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:5.7
 
 or you can used a pre-existing mysql container.  
   
