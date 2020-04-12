@@ -10,8 +10,8 @@ Docker container for [Ampache][3]
 
 To install docker in Ubuntu 18.04 use the commands:
 
-    $ sudo apt-get update
-    $ sudo wget -qO- https://get.docker.com/ | sh
+    sudo apt-get update
+    sudo wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
@@ -19,13 +19,13 @@ To install docker in Ubuntu 18.04 use the commands:
 
 If you need a MySQL database you can link container :
 
-    $ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql
+    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql:5.7
 
 or you can used a pre-existing mysql container.  
   
 Them create and link to Ampache container
 
-    $ docker run -d -p 80:80 --link some-mysql:db quantumobject/docker-ampache 
+    docker run -d -p 80:80 --link some-mysql:db --name ampache quantumobject/docker-ampache 
 
 where when been ask for database need to replace localhost for db.
 
@@ -33,11 +33,11 @@ Check port and point your browser to http://[ip]/  to initially configure your A
 
 when done please execute this command for security and remove the install script:
 
-    $ docker exec -it container_id after_install
+    docker exec -it container_id after_install
     
 to add the media files for this container you can used the VOLUME /var/data when creating the container :
 
-    $ docker run -d -p 80:80 -v /src/data:/var/data --link some-mysql:db quantumobject/docker-ampache
+    docker run -d -p 80:80 -v /src/data:/var/data --link some-mysql:db --name ampache quantumobject/docker-ampache
 
 After installing and configuring the web application , need to add the first local catalog to be able to used the music at folder relate to volume , in this casa the path for the local Catalog will be /var/data.
 

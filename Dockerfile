@@ -1,17 +1,17 @@
 #name of container: docker-ampache
-#versison of container: 0.3.4
+#versison of container: 0.3.5
 FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Update the container
 # Installation of nesesary package/software for this containers...
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q apache2 php php-gd php-mysql \
-                    php-curl libapache2-mod-php php-mbstring ffmpeg git\
-                    php-zip php-xml\
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends apache2 php php-gd php-mysql \
+                    php-curl libapache2-mod-php php-mbstring ffmpeg git \
+                    php-zip php-xml unzip php-json php-common \
                     && cd /var/www   \
-                    && wget https://github.com/ampache/ampache/archive/ampache-4.1.1_all.zip \
+                    && wget https://github.com/ampache/ampache/releases/download/4.1.1/ampache-4.1.1_all.zip \
                     && unzip ampache-4.1.1_all.zip -d ampache \
-                    && rm ampache-4.1.1_all.zip \                
+                    && rm ampache-4.1.1_all.zip \ 
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
@@ -45,7 +45,6 @@ RUN chmod +x /sbin/after_install
 
 #add files and script that need to be use for this container
 COPY apache2.conf /etc/apache2/apache2.conf
-ADD ampache.cfg.php.dist /var/temp/ampache.cfg.php.dist
 
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
